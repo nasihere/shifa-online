@@ -1,0 +1,24 @@
+ var UserMenu = new Schema({
+ 	Contact:[{
+ 		Name:String,
+	 	Address:String,
+	 	Phone:String,
+	 	Email:String
+	 }],
+	Verify:[{
+		Phone:Boolean,
+		Email:Boolean,
+		SMS:Boolean		
+	}],
+	DateTime:[{
+		Registration:Date,
+		LastVisit:Date,
+		Modified:Date,
+		LastOrder:Date
+	}],
+	Login:[{
+		FacebookID:String,
+		GoogleID:String,
+		PersonalID:String
+	}]
+ });

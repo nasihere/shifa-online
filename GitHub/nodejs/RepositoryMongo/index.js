@@ -1,0 +1,1 @@
+global.config = require("./app.config.js");
