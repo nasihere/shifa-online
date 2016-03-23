@@ -31,5 +31,9 @@
   "Role": {
     "dataSource": "db",
     "public": false
+  },
+  "ZzTmpTable": {
+    "dataSource": "shifa_dev",
+    "public": true
   }
 }

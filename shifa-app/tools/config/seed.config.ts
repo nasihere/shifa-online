@@ -23,10 +23,12 @@ export class SeedConfig {
 
   BOOTSTRAP_MODULE     = this.ENABLE_HOT_LOADING ? 'hot_loader_main' : 'main';
 
-  APP_TITLE            = 'My Angular2 App';
+  APP_TITLE            = 'Shifa Repertory';
 
   APP_SRC              = 'src';
+  NODE_MOD             = 'node_modules';
   ASSETS_SRC           = `${this.APP_SRC}/assets`;
+  ASSETS_NODEMOD       = `${this.NODE_MOD}`;
 
   TOOLS_DIR            = 'tools';
   SEED_TASKS_DIR       = join(process.cwd(), this.TOOLS_DIR, 'tasks', 'seed');
@@ -59,7 +61,8 @@ export class SeedConfig {
     { src: 'rxjs/bundles/Rx.js', inject: 'libs', env: ENVIRONMENTS.DEVELOPMENT },
     { src: 'angular2/bundles/angular2.js', inject: 'libs', env: ENVIRONMENTS.DEVELOPMENT },
     { src: 'angular2/bundles/router.js', inject: 'libs', env: ENVIRONMENTS.DEVELOPMENT },
-    { src: 'angular2/bundles/http.js', inject: 'libs', env: ENVIRONMENTS.DEVELOPMENT }
+    { src: 'angular2/bundles/http.js', inject: 'libs', env: ENVIRONMENTS.DEVELOPMENT },
+    { src: 'material-design-lite/material.min.js', inject: 'libs', env: ENVIRONMENTS.DEVELOPMENT }
   ];
 
   // Declare local files that needs to be injected
