@@ -16,7 +16,10 @@ import {DashboardService} from '../../shared/services/dashboard.service';
 })
 @RouteConfig([
   { path: '/',      name: 'Home',  component: HomeComponent  },
-  { path: '/repertory', name: 'Repertory', component: RepertoryComponent },
+  { path: '/repertory', name: 'Repertory', component: HomeComponent },
+  { path: '/kent-repertory', name: 'Kent-Repertory', component: RepertoryComponent },
+  { path: '/boenninghausen-repertory', name: 'Boenninghausen-Repertory', component: RepertoryComponent },
+  { path: '/cyrus-repertory', name: 'Cyrus-Repertory', component: RepertoryComponent },
   { path: '/medica', name: 'Medica', component: RepertoryComponent },
   { path: '/abbreviation', name: 'Abbreviation', component: RepertoryComponent },
   { path: '/community', name: 'Community', component: RepertoryComponent },
