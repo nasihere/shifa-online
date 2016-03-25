@@ -1,7 +1,7 @@
 export class DashboardService {
   dashboardLinks = [
-    {name:'Kent Repertory',src:'assets/images/authors/ic_logo_boenninghausens.png'},
-    {name:'Boenninghausen Repertory',src:'assets/images/authors/ic_mm_allen_logo.png'},
+    {name:'Kent Repertory',src:'assets/images/authors/ic_logo_boenninghausens.png', link:'Kent-Repertory'},
+    {name:'Boenninghausen Repertory',src:'assets/images/authors/ic_mm_allen_logo.png', link:'Boenninghausen'},
     {name:'Cyrus Maxwell Boger Repertory',src:'assets/images/authors/ic_mm_boericke.png'},
     {name:'New Nazim Repertory',src:'assets/images/authors/ic_mm_kent_logo.png'}
     ];

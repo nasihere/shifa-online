@@ -61,13 +61,13 @@ export class SeedConfig {
     { src: 'rxjs/bundles/Rx.js', inject: 'libs', env: ENVIRONMENTS.DEVELOPMENT },
     { src: 'angular2/bundles/angular2.js', inject: 'libs', env: ENVIRONMENTS.DEVELOPMENT },
     { src: 'angular2/bundles/router.js', inject: 'libs', env: ENVIRONMENTS.DEVELOPMENT },
-    { src: 'angular2/bundles/http.js', inject: 'libs', env: ENVIRONMENTS.DEVELOPMENT },
-    { src: 'material-design-lite/material.min.js', inject: 'libs', env: ENVIRONMENTS.DEVELOPMENT }
+    { src: 'angular2/bundles/http.js', inject: 'libs', env: ENVIRONMENTS.DEVELOPMENT }
   ];
 
   // Declare local files that needs to be injected
   APP_ASSETS: InjectableDependency[] = [
-    { src: `${this.ASSETS_SRC}/main.css`, inject: true, vendor: false }
+  //  { src: `${this.ASSETS_SRC}/main.css`, inject: true, vendor: false }
+    { src: `${this.ASSETS_SRC}/material.css`, inject: true, vendor: false }
   ];
 
 
