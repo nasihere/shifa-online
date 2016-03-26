@@ -1,14 +1,29 @@
-:host {
-  display: block;
-  padding: 0 16px;
+
+ul li, a {
+    margin-bottom: 2px;
+
 }
 
-input {
-  width: 250px;
+.thumbnail{
+    background-color: #485563;
+    border: none;
 }
-
-ul {
-  list-style-type: none;
-  padding: 0 0 0 8px;
-}
- 
+ img.smallimg{
+     height: 40px;
+ }
+ .separator{
+     border-bottom:1px solid #4E5D6C;
+ }
+ .blockCard{
+     min-height: 100px;
+ }
+ .remedy {
+     float:left;
+     margin-right: 2px;
+     font-size: 14px;
+ }
+ .less{
+     height: 25px;
+     
+     overflow: scroll;
+ }

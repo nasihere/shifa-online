@@ -2,7 +2,6 @@ import {Component} from 'angular2/core';
 import {CORE_DIRECTIVES, FORM_DIRECTIVES} from 'angular2/common';
 
 import {NameListService} from '../../shared/services/name-list.service';
-import {DashboardService} from '../../shared/services/dashboard.service';
 
 
 import {ROUTER_DIRECTIVES} from 'angular2/router';
@@ -16,7 +15,7 @@ import {ROUTER_DIRECTIVES} from 'angular2/router';
 })
 export class HomeComponent {
   newName: string;
-  constructor(public nameListService: NameListService, public dashboardService: DashboardService) {}
+  constructor(public nameListService: NameListService) {}
 
   /*
    * @param newname  any text as input.

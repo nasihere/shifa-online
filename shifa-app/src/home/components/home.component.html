@@ -1,42 +1,7 @@
 
 
-<!--ul>
-  <li ">
-      <a > <img src="{{item.src}}" width="50px" /></a>
-  </li>
-</ul!-->
- 
- <!--div class="row">
-  <div *ngFor="#item of dashboardService.get()" class="col-xs-3 col-md-3">
-    <div class="thumbnail">
-     <img src="{{item.src}}" alt="{{item.name}}" />
-       <div class="caption">
-        <h3>{{item.name}}</h3>
-        <p>{{item.desc}}</p>
-        <p><a [routerLink]="[item.link]" class="btn btn-primary" role="button">Open</a></p>
-      </div>
-    </div>
-  </div>
-</div!-->
-
-
- <div class="row">
-  <div *ngFor="#item of dashboardService.get()" class="col-xs-3 col-md-3">
-    <a [routerLink]="[item.link]" class="thumbnail">
-      <div class="caption">
-             <p class="text-center">{{item.name}}</p>
-      </div>
-      <img src="{{item.src}}" alt="{{item.name}}" />
-       
-    </a>
-  </div>
-  
-</div>
-
-
-
-<!--ol class="breadcrumb">
+<ol class="breadcrumb">
   <li><a href="#">Home</a></li>
   <li><a href="#">Library</a></li>
   <li class="active">Data</li>
-</ol!-->
+</ol>
