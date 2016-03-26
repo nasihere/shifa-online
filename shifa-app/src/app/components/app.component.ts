@@ -6,7 +6,9 @@ import {AboutComponent} from '../../about/components/about.component';
 
 import {RepertoryComponent} from '../../repertory/components/repertory.component';
 import {ChapterComponent} from '../../repertory/chapters/chapter.component';
+
 import {MedicaComponent} from '../../medica/components/medica.component';
+import {MMRemediesComponent} from '../../medica/remedies/remedies.component';
 
 import {HeaderRepertoryComponent} from '../../repertory/header/header.component';
 import {HeaderMedicaComponent} from '../../medica/header/header.component';
@@ -32,7 +34,8 @@ import {MedicaService} from '../../shared/services/medica.service';
   { path: '/boenninghausen-repertory', name: 'Boenninghausen-Repertory', component: ChapterComponent },
   { path: '/cyrus-repertory', name: 'Cyrus-Repertory', component: ChapterComponent },
   { path: '/tmp-repertory', name: 'TMP-Repertory', component: RepertoryComponent },
-  { path: '/medica', name: 'Medica', component: MedicaComponent },
+  { path: '/medica-remedies', name: 'Medica-Remedies', component: MMRemediesComponent },
+  { path: '/medica-medica', name: 'Medica-Materia', component: MedicaComponent },
   { path: '/abbreviation', name: 'Abbreviation', component: RepertoryComponent },
   { path: '/community', name: 'Community', component: RepertoryComponent },
   { path: '/account', name: 'Account', component: RepertoryComponent },
