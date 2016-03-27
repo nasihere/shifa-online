@@ -13,7 +13,7 @@ import {ROUTER_DIRECTIVES} from 'angular2/router';
 export class ChapterComponent {
   repertoryList: Object;
   constructor(public repertoryService: RepertoryService) {
-      this.repertoryList = repertoryService.get();
+      this.repertoryList = repertoryService.getChapter();
   }
 
   

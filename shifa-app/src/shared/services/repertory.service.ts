@@ -6,6 +6,10 @@ export class RepertoryService {
   get(): Object {
     return this.repertory;
   }
+  getChapter():Object{
+  	//$hyyp.(apibhbhbhbhb)
+  	return this.repertory.repertoryChapterData;
+  }
   //get(): Array<Object>{
   //    return this.repertoryData;
  // }
