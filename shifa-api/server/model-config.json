@@ -35,5 +35,13 @@
   "ZzTmpTable": {
     "dataSource": "shifa_dev",
     "public": true
+  },
+  "TblShifa": {
+    "dataSource": "shifa_dev",
+    "public": true
+  },
+  "TblRemInfo": {
+    "dataSource": "shifa_dev",
+    "public": true
   }
 }

@@ -11,7 +11,7 @@ import {ROUTER_DIRECTIVES} from 'angular2/router';
   directives: [FORM_DIRECTIVES, CORE_DIRECTIVES,ROUTER_DIRECTIVES]
 })
 export class MMRemediesComponent {
-  remediesList:string[];
+  remediesList:Array<Object>;
   constructor() {
     this.remediesList = [{"rem":"arum-m"},{"rem":"arum-t"},{"rem":"arund"},{"rem":"arund-d"},{"rem":"asaf"},{"rem":"asar"},{"rem":"asc-c"},{"rem":"asc-t"},{"rem":"asim"},{"rem":"aspar"},{"rem":"calc-caust"}];
   

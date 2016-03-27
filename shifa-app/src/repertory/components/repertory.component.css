@@ -4,6 +4,17 @@ ul li, a {
 
 }
 
+ul li:hover {
+    background-color: #485563;
+    cursor: pointer;
+
+}
+ul li:active {
+    background-color: #B15315;
+    cursor: pointer;
+
+}
+
 .thumbnail{
     background-color: #485563;
     border: none;

@@ -3,6 +3,7 @@ import {CORE_DIRECTIVES, FORM_DIRECTIVES} from 'angular2/common';
 import {ROUTER_DIRECTIVES} from 'angular2/router';
 
 import {MedicaService} from '../../shared/services/medica.service';
+import {MMRemediesComponent} from './../remedies/remedies.component';
 import {HeaderMedicaComponent} from './../header/header.component';
 
 
@@ -11,7 +12,7 @@ import {HeaderMedicaComponent} from './../header/header.component';
   moduleId: module.id,
   templateUrl: './medica.component.html',
   styleUrls: ['./medica.component.css'],
-  directives: [FORM_DIRECTIVES, CORE_DIRECTIVES,ROUTER_DIRECTIVES,HeaderMedicaComponent]
+  directives: [FORM_DIRECTIVES, CORE_DIRECTIVES,ROUTER_DIRECTIVES,HeaderMedicaComponent,MMRemediesComponent]
 })
 export class MedicaComponent {
   medicaData: Object;
