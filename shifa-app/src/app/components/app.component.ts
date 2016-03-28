@@ -26,12 +26,14 @@ import {MedicaService} from '../../shared/services/medica.service';
 import {AbbreviationService} from '../../shared/services/abbreviation.service';
 import {OrganonService} from '../../shared/services/organon.service';
 
+
 @Component({
   selector: 'sd-app',
   viewProviders: [NameListService, RepertoryService,MedicaService,AbbreviationService,OrganonService],
   moduleId: module.id,
   templateUrl: './app.component.html',
-  directives: [ROUTER_DIRECTIVES, NavbarComponent]
+  directives: [ROUTER_DIRECTIVES, NavbarComponent],
+  providers:[]
 })
 @RouteConfig([
   { path: '/',      name: 'Home',  component: HomeComponent  },

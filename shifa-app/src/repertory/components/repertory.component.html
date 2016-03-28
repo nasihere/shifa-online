@@ -1,7 +1,7 @@
 
 <repertory-header></repertory-header>
 <ul class="list-group">
-  <li class="separator col-md-6 col-lg-4" *ngFor ="#item of repertoryList.repertoryData"  >
+  <li (click)="getCategory(item.categoy)" class="separator col-md-6 col-lg-4" *ngFor ="#item of repertoryList"  >
       <img class="smallimg" 
             src="assets/images/repertoryicons/_{{item.maincategoy}}.png" 
             onerror="this.onerror=null;this.src='assets/images/logo.png';"
