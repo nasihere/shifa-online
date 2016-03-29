@@ -27,7 +27,7 @@ export class ChapterComponent {
       )
       .subscribe(
           res => {
-              this.repertoryList = res[0].chapters;
+              this.repertoryList = (<any>res)[0].chapters;
               console.log(this.repertoryList)
           },
           null,

@@ -27,7 +27,7 @@ export class RepertoryComponent {
       )
       .subscribe(
           res => {
-              this.repertoryList = res[0];
+              this.repertoryList = (<any>res)[0];
           },
           null,
           () => { this.isLoading = false; })
@@ -39,7 +39,7 @@ export class RepertoryComponent {
       )
       .subscribe(
           res => {
-              this.repertoryList = res[0];
+              this.repertoryList = (<any>res)[0];
           },
           null,
           () => { this.isLoading = false; })

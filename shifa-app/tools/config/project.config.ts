@@ -21,6 +21,8 @@ export class ProjectConfig extends SeedConfig {
       // {src: `${this.ASSETS_SRC}/css/toastr.min.css`, inject: true},
       // {src: `${this.APP_DEST}/assets/scss/global.css`, inject: true},
       { src: `${this.ASSETS_SRC}/bootstrap_theme.css`, inject: true },
+      { src: `${this.ASSETS_SRC}/bootstrap-drawer.min.css`, inject: true },
+
     ];
   }
 }
