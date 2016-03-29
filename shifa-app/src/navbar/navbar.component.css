@@ -9,3 +9,27 @@
 	margin-bottom: 0px;
 }
 
+
+/* collapsed sidebar styles */
+@media screen and (max-width: 767px) {
+  .row-offcanvas {
+    -webkit-transition: all 0.25s ease-out;
+    -moz-transition: all 0.25s ease-out;
+    transition: all 0.25s ease-out;
+    
+    position: absolute;
+    z-index: 999999;
+    left: 0px;
+    background: #485563;
+
+  }
+ 
+  .sidebar-offcanvas {
+    position: absolute;
+    top: 0;
+    width: 41.6%;
+  }
+  #sidebar {
+    padding-top:0;
+  }
+}

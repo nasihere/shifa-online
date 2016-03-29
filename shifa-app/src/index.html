@@ -10,10 +10,11 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   <!-- inject:css -->
    <!-- endinject -->
-</head>
-<body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
   
-  <sd-app>Loading...</sd-app>
+</head>
+
+<body class="">
+    <sd-app>Loading...</sd-app>
   <script>
   // function.name (all IE)
   // Remove once https://github.com/angular/angular/issues/6501 is fixed.
@@ -30,6 +31,7 @@
       }
     });
   }
+  
   </script>
 
   <script>
@@ -59,11 +61,21 @@
 <!--https://bootswatch.com/superhero/!-->
   <% if (ENV === 'dev') { %>
   <script>
+ 
+  // Handler for .ready() called.
+      function closeNavbar()
+      {
+            if (!$(this).parent().hasClass('dropdown'))
+            $(".navbar-collapse").collapse('hide');
+    
+      }
   System.import('<%= BOOTSTRAP_MODULE %>')
     .catch(function (e) {
       console.error(e,
         'Report this error at https://github.com/mgechev/angular2-seed/issues');
     });
+    
+    
   </script>
   <% } %>
 
