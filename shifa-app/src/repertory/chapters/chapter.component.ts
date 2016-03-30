@@ -2,8 +2,8 @@ import {Component} from 'angular2/core';
 import {CORE_DIRECTIVES, FORM_DIRECTIVES} from 'angular2/common';
 import {RepertoryService} from '../../shared/services/repertory.service';
 import {HTTP_PROVIDERS} from 'angular2/http';
-import {ROUTER_DIRECTIVES} from 'angular2/router';
-
+import {ROUTER_DIRECTIVES,RouteParams,Router} from 'angular2/router';
+import {OnInit} from 'angular2/core';
 import {Observable} from 'rxjs/Observable';
 
 import 'rxjs/add/observable/forkJoin';
@@ -16,24 +16,32 @@ import 'rxjs/add/observable/forkJoin';
   directives: [FORM_DIRECTIVES, CORE_DIRECTIVES,ROUTER_DIRECTIVES],
   providers:[RepertoryService,HTTP_PROVIDERS]
 })
-export class ChapterComponent {
+export class ChapterComponent implements OnInit  {
+  
   repertoryList: Object;
   isLoading = false;
-  constructor(public repertoryService: RepertoryService) {
-      
+  book: string;
+  constructor(public repertoryService: RepertoryService,private _routeParams:RouteParams,private _router:Router) {
+     
+  }
+    getChapter(book:string){
+         
       Observable.forkJoin(
-          this.repertoryService.getChapter()
+          this.repertoryService.getChapter(book)
           
       )
       .subscribe(
           res => {
               this.repertoryList = (<any>res)[0].chapters;
-              console.log(this.repertoryList)
           },
           null,
           () => { this.isLoading = false; })
           
-  }
-
-  
+    }
+    ngOnInit() {
+        this.book = this._routeParams.get('book');
+        this.book = (this.book === '') ? 'kent' : this.book;
+        this.getChapter(this.book); 
+    }
+    
 }

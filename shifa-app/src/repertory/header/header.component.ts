@@ -1,11 +1,11 @@
 import {Component} from 'angular2/core';
-import {ROUTER_DIRECTIVES} from 'angular2/router';
 import {RepertoryService} from '../../shared/services/repertory.service';
 
 
 import {HTTP_PROVIDERS} from 'angular2/http';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/observable/forkJoin';
+import {ROUTER_DIRECTIVES,RouteParams,Router} from 'angular2/router';
 
 @Component({
   selector: 'repertory-header',
@@ -17,21 +17,31 @@ import 'rxjs/add/observable/forkJoin';
 })
 export class HeaderRepertoryComponent {
 
-  isLoading = true;
   repertoryList: Object;
-  constructor(public repertoryService: RepertoryService) {
-      this.repertoryList = repertoryService.get();
+  isLoading = false;
+  book: string;
+  constructor(public repertoryService: RepertoryService,private _routeParams:RouteParams,private _router:Router) {
+     
   }
-  getChapter(category: string){
-       Observable.forkJoin(
-          this.repertoryService.getMainCategory(category)
+    getChapter(book:string){
+         
+      Observable.forkJoin(
+          this.repertoryService.getChapter(book)
+          
       )
       .subscribe(
           res => {
-              this.repertoryList = (<any>res)[0];
+              this.repertoryList = (<any>res)[0].chapters;
           },
           null,
           () => { this.isLoading = false; })
-  }
-  
+          
+    }
+    ngOnInit() {
+        this.book = this._routeParams.get('book');
+        this.book = (this.book === '') ? 'kent' : this.book;
+        this.getChapter(this.book); 
+    }
+    
+   
 }

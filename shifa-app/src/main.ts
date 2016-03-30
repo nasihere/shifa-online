@@ -3,11 +3,19 @@ import {bootstrap} from 'angular2/platform/browser';
 import {ROUTER_PROVIDERS, APP_BASE_HREF} from 'angular2/router';
 import {AppComponent} from './app/components/app.component';
 
+import {ToastOptions} from "ng2-toastr/ng2-toastr";
+   
 if ('<%= ENV %>' === 'prod') { enableProdMode(); }
 
+let options:any = {
+    autoDismiss: false,
+    positionClass: 'toast-bottom-right',
+};
+    
 bootstrap(AppComponent, [
   ROUTER_PROVIDERS,
-  provide(APP_BASE_HREF, { useValue: '<%= APP_BASE %>' })
+  provide(APP_BASE_HREF, { useValue: '<%= APP_BASE %>' }),
+  provide(ToastOptions, { useValue: new ToastOptions(options)})
 ]);
 
 // In order to start the Service Worker located at "./sw.js"

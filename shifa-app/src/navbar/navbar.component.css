@@ -12,6 +12,14 @@
 
 /* collapsed sidebar styles */
 @media screen and (max-width: 767px) {
+  nav ul li a{
+      font-size: 14px;
+      padding:16px;
+      
+  }
+  nav ul li a:hover{
+      background-color: #2B3E50;
+  }
   .row-offcanvas {
     -webkit-transition: all 0.25s ease-out;
     -moz-transition: all 0.25s ease-out;
@@ -23,7 +31,12 @@
     background: #485563;
 
   }
- 
+  .row-offcanvas-right
+  .sidebar-offcanvas {
+    right: -41.6%;
+  }
+
+  
   .sidebar-offcanvas {
     position: absolute;
     top: 0;

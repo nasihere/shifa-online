@@ -34,13 +34,18 @@ import {OrganonService} from '../../shared/services/organon.service';
   templateUrl: './app.component.html',
   directives: [ROUTER_DIRECTIVES, NavbarComponent],
   providers:[]
-})
+}) 
 @RouteConfig([
   { path: '/',      name: 'Home',  component: HomeComponent  },
   { path: '/repertory', name: 'Repertory', component: AuthorRepertoryComponent },
   { path: '/kent-repertory', name: 'Kent-Repertory', component: ChapterComponent },
   { path: '/boenninghausen-repertory', name: 'Boenninghausen-Repertory', component: ChapterComponent },
   { path: '/cyrus-repertory', name: 'Cyrus-Repertory', component: ChapterComponent },
+  
+  { path:'/repertory/:book', name: 'RepertoryBook', component: ChapterComponent},
+  { path:'/repertory/:book/:category', name: 'RepertoryCategory', component: RepertoryComponent},
+  
+  
   { path: '/tmp-repertory', name: 'TMP-Repertory', component: RepertoryComponent },
   { path: '/medica-medica', name: 'Medica-Materia', component: MedicaComponent },
   { path: '/abbreviation', name: 'Abbreviation', component: AbbreviationComponent },

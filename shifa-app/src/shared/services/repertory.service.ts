@@ -26,12 +26,12 @@ export class RepertoryService  {
 			.map(res => res.json());
   }
   
-  getCategory(category: string): Observable<Object> {
-    return this._http.get(this._base+'?filter[where][categoy]='+category)
+  getCategory(book: string, category: string): Observable<Object> {
+    return this._http.get(this._base+'?filter[where][categoy]='+category+'&filter[where][book]='+book)
 			.map(res => res.json());
   }
-  getChapter():Observable<Object>{
-    return this._http.get(this._base+'/chapter?book=kent')
+  getChapter(book:string):Observable<Object>{
+    return this._http.get(this._base+'/chapter?book='+book)
 			.map(res => res.json());
   }
   //get(): Array<Object>{

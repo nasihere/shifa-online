@@ -14,9 +14,9 @@ import {ROUTER_DIRECTIVES} from 'angular2/router';
 })
 export class AuthorRepertoryComponent {
   authors = [
-    {name:'Kent',src:'assets/images/authors/ic_mm_kent_logo.png', link:'Kent-Repertory'},
-    {name:'Boenninghausen\'s',src:'assets/images/authors/ic_logo_boenninghausens.png', link:'Repertory'},
-    {name:'Cyrus Maxwell Boger',src:'assets/images/authors/ic_mm_allen_logo.png', link:'Repertory'}
+    {name:'Kent',src:'assets/images/authors/ic_mm_kent_logo.png', book:'kent'},
+    {name:'Boenninghausen\'s',src:'assets/images/authors/ic_logo_boenninghausens.png', book:'boger'},
+    {name:'Cyrus Maxwell Boger',src:'assets/images/authors/ic_mm_allen_logo.png', book:'cyrus'}
   ];
  
 }
