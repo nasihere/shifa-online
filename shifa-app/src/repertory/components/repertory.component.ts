@@ -25,6 +25,9 @@ export class RepertoryComponent implements OnInit{
   book:string;
   arrayOfKeys:Array<string>;
   category:string;
+  search:string;
+  offset:number = 0; 
+  countItem:number;
   constructor(public repertoryService: RepertoryService,private _routeParams:RouteParams,private _router:Router) {
   }
   
@@ -51,7 +54,7 @@ export class RepertoryComponent implements OnInit{
       .subscribe(
           res => {
               this.repertoryList = (<any>res)[0].repertory;
-              this.arrayOfKeys = Object.keys(this.repertoryList);
+             this.arrayOfKeys = Object.keys(this.repertoryList);
           },
           null,
           () => { this.isLoading = false; })
@@ -63,11 +66,21 @@ export class RepertoryComponent implements OnInit{
       .subscribe(
           res => {
               this.repertoryList = (<any>res)[0].repertory;
+              this.countItem = this.Objectsize(this.repertoryList);
               this.arrayOfKeys = Object.keys(this.repertoryList);
           },
           null,
           () => { this.isLoading = false; })
     }
+    Objectsize(obj:any) {
+        var size = 0
+        var key = '';
+        for (key in obj) {
+                size += Object.keys(obj[key]).length;
+        }
+        return size;
+    };
+
     getSearchByAllBook( str:string, offset:number){
       Observable.forkJoin(
           this.repertoryService.getSearchByAllBook(str,offset)
@@ -75,7 +88,8 @@ export class RepertoryComponent implements OnInit{
       .subscribe(
           res => {
               this.repertoryList = (<any>res)[0].repertory;
-              this.arrayOfKeys = Object.keys(this.repertoryList);
+                 this.countItem = this.Objectsize(this.repertoryList);
+            this.arrayOfKeys = Object.keys(this.repertoryList);
           },
           null,
           () => { this.isLoading = false; })
@@ -88,16 +102,16 @@ export class RepertoryComponent implements OnInit{
             this.getCategory(this.book, this.category);    
         }
         else if (this.findType() == 2){
-            let search = this._routeParams.get('search');
+            this.search= this._routeParams.get('search');
             this.book = this._routeParams.get('book');
             this.book = (this.book === '') ? 'kent' : this.book;
-            let offset = parseInt(this._routeParams.get('offset')); 
-            this.getSearchByBook(this.book, search, offset);
+            this.offset  = parseInt(this._routeParams.get('offset')); 
+            this.getSearchByBook(this.book, this.search, this.offset );
         }
          else if (this.findType() == 3){
-            let search = this._routeParams.get('search');
-            let offset = parseInt(this._routeParams.get('offset')); 
-            this.getSearchByAllBook(search,offset);
+            this.search= this._routeParams.get('search');
+            this.offset = parseInt(this._routeParams.get('offset')); 
+            this.getSearchByAllBook(this.search,this.offset);
         }
          
     }

@@ -19,8 +19,8 @@
   <li  *ngFor ="#item of repertoryList[key]" class="separator blockCard col col-md-4 col-lg-3 col-sm-6 col-xs-12"  >
        <span class="pull-right">
           
-         <a class="btn btn-sm btn-success" (click)="item.showMore =!item.showMore"><i  [class.fa-toggle-on]="item.showMore" [class.fa-toggle-off]="!item.showMore" class="fa  "> </i> {{item.Intensity}} </a>
-        <a (click)="item.check = !item.check" class="btn btn-sm btn-primary ">
+         <a [class.hide]="item.Intensity == 0" class="btn btn-sm btn-success" (click)="item.showMore =!item.showMore"><i  [class.fa-toggle-on]="item.showMore" [class.fa-toggle-off]="!item.showMore" class="fa  "> </i> {{item.Intensity}} </a>
+        <a  (click)="item.check = !item.check" class="btn btn-sm btn-primary ">
             <i  [class.fa-check]="item.check" [class.fa-square-o]="!item.check" class="fa  "> </i></a>
                 <span class="fa fa-chevron-right"></span>
       </span>
@@ -49,4 +49,15 @@
 </ul>
 
 </div>
-</div>
+</div> 
+<ul class="pager" *ngIf="!book && search && (countItem == 200)">
+    
+  <li *ngIf="offset !== 0" class="previous "><a [routerLink]="['RepertorySearchCategory',{search:search, offset: (offset-1)}]">&larr; Previous</a></li>
+  <li  class="next"><a  [routerLink]="['RepertorySearchCategory',{search:search, offset: (offset+1)}]">Next &rarr;</a></li>
+</ul>
+
+
+<ul class="pager" *ngIf="book && search && (countItem == 200)">
+  <li *ngIf="offset !== 0" class="previous "><a [routerLink]="['RepertorySearchBookCategory',{book:book, search:search, offset: (offset-1)}]">&larr; Previous</a></li>
+  <li  class="next"><a  [routerLink]="['RepertorySearchBookCategory',{book:book, search:search, offset: (offset+1)}]">Next &rarr;</a></li>
+</ul>
