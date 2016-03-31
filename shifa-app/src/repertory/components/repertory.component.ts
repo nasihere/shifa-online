@@ -23,20 +23,11 @@ export class RepertoryComponent implements OnInit{
   repertoryList: Object;
   isLoading = true;
   book:string;
+  arrayOfKeys:Array<string>;
   category:string;
   constructor(public repertoryService: RepertoryService,private _routeParams:RouteParams,private _router:Router) {
-      Observable.forkJoin(
-          this.repertoryService.getMainCategory('Ear')
-          
-      )
-      .subscribe(
-          res => {
-              this.repertoryList = (<any>res)[0];
-          },
-          null,
-          () => { this.isLoading = false; })
   }
- 
+  
   remediesColor(str: string): string {
           var remedyCount = parseInt(str.split(",")[1]);
           if (remedyCount == 1)
@@ -59,15 +50,69 @@ export class RepertoryComponent implements OnInit{
       )
       .subscribe(
           res => {
-              this.repertoryList = (<any>res)[0];
+              this.repertoryList = (<any>res)[0].repertory;
+              this.arrayOfKeys = Object.keys(this.repertoryList);
+          },
+          null,
+          () => { this.isLoading = false; })
+    }
+    getSearchByBook(book:string, str:string, offset: number){
+      Observable.forkJoin(
+          this.repertoryService.getSearchByBook(book, str, offset)
+      )
+      .subscribe(
+          res => {
+              this.repertoryList = (<any>res)[0].repertory;
+              this.arrayOfKeys = Object.keys(this.repertoryList);
+          },
+          null,
+          () => { this.isLoading = false; })
+    }
+    getSearchByAllBook( str:string, offset:number){
+      Observable.forkJoin(
+          this.repertoryService.getSearchByAllBook(str,offset)
+      )
+      .subscribe(
+          res => {
+              this.repertoryList = (<any>res)[0].repertory;
+              this.arrayOfKeys = Object.keys(this.repertoryList);
           },
           null,
           () => { this.isLoading = false; })
     }
     ngOnInit() {
-        this.category = this._routeParams.get('category');
-        this.book = this._routeParams.get('book');
-        this.book = (this.book === '') ? 'kent' : this.book;
-        this.getCategory(this.book, this.category); 
+        if (this.findType() == 1){
+            this.category = this._routeParams.get('category');
+            this.book = this._routeParams.get('book');
+            this.book = (this.book === '') ? 'kent' : this.book;
+            this.getCategory(this.book, this.category);    
+        }
+        else if (this.findType() == 2){
+            let search = this._routeParams.get('search');
+            this.book = this._routeParams.get('book');
+            this.book = (this.book === '') ? 'kent' : this.book;
+            let offset = parseInt(this._routeParams.get('offset')); 
+            this.getSearchByBook(this.book, search, offset);
+        }
+         else if (this.findType() == 3){
+            let search = this._routeParams.get('search');
+            let offset = parseInt(this._routeParams.get('offset')); 
+            this.getSearchByAllBook(search,offset);
+        }
+         
+    }
+    findType(){
+        let type = 1;
+        if (this._routeParams.get('category') && this._routeParams.get('book')){
+            type = 1
+        }
+        else if (this._routeParams.get('search') && this._routeParams.get('book')){
+            type = 2
+        } 
+        
+        else if (this._routeParams.get('search')){
+            type = 3
+        } 
+        return type;
     }
 }

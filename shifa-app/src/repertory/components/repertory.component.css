@@ -15,7 +15,9 @@ ul li:active {
     cursor: pointer;
 
 }
-
+.margin-left-10{
+    margin-left: 1px;
+}
 .thumbnail{
     background-color: #485563;
     border: none;
@@ -27,7 +29,7 @@ ul li:active {
      border-bottom:1px solid #4E5D6C;
  }
  .blockCard{
-     min-height: 100px;
+     min-height: 90px;
  }
  .remedy {
      float:left;

@@ -7,7 +7,7 @@
     "host": "localhost",
     "url": "",
     "database": "shifa_dev",
-    "password": "123",
+    "password": "",
     "name": "shifa_dev",
     "user": "root",
     "connector": "mysql"

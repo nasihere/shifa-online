@@ -27,7 +27,16 @@ export class RepertoryService  {
   }
   
   getCategory(book: string, category: string): Observable<Object> {
-    return this._http.get(this._base+'?filter[where][categoy]='+category+'&filter[where][book]='+book)
+    return this._http.get(this._base+'/category?category='+category+'&book='+book + "&offset=0")
+			.map(res => res.json());
+  }
+  
+  getSearchByBook(book: string, str: string, offset:number): Observable<Object> {
+    return this._http.get(this._base+'/searchByBook?search='+str+'&book='+book + "&offset="+offset)
+			.map(res => res.json());
+  }
+  getSearchByAllBook(str: string, offset:number): Observable<Object> {
+    return this._http.get(this._base+'/searchByAllBook?search='+str + "&offset="+offset)
 			.map(res => res.json());
   }
   getChapter(book:string):Observable<Object>{

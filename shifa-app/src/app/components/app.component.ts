@@ -44,9 +44,11 @@ import {OrganonService} from '../../shared/services/organon.service';
   
   { path:'/repertory/:book', name: 'RepertoryBook', component: ChapterComponent},
   { path:'/repertory/:book/:category', name: 'RepertoryCategory', component: RepertoryComponent},
+  { path:'/repertory/search/:search/page/:offset', name: 'RepertorySearchCategory', component: RepertoryComponent},
+  { path:'/repertory/search/:book/:search/page/:offset', name: 'RepertorySearchBookCategory', component: RepertoryComponent},
   
   
-  { path: '/tmp-repertory', name: 'TMP-Repertory', component: RepertoryComponent },
+  { path: '/reversed-repertory', name: 'ReversedRepertory', component: RepertoryComponent },
   { path: '/medica-medica', name: 'Medica-Materia', component: MedicaComponent },
   { path: '/abbreviation', name: 'Abbreviation', component: AbbreviationComponent },
   { path: '/organon', name: 'Organon', component: OrganonComponent },
