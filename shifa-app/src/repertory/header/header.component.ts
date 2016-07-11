@@ -39,15 +39,14 @@ export class HeaderRepertoryComponent {
           () => { this.isLoading = false; })
           
     }
-   onkeyup(event:any){
-        if (event.which === 13) {
-            if (this._routeParams.get('book') === null){
-                this. getSearchByAllBook(event.target.value,0);
-            }
-            else {
-                this. getSearchByBook(this.book, event.target.value,0);
-            }
+   enterKeySearch(event:any){
+        if (this._routeParams.get('book') === null){
+            this. getSearchByAllBook(event.target.value,0);
         }
+        else {
+            this. getSearchByBook(this.book, event.target.value,0);
+        }
+    
     }
     getSearchByBook(book:string, str:string, offset:number){
         this._router.navigate( ['RepertorySearchBookCategory', {book:this.book, search: str, offset: offset }] );

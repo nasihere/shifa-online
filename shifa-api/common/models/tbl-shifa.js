@@ -49,7 +49,9 @@ module.exports = function(TblShifa) {
         'category', 
         {
           http: {path: '/category', verb: 'get'},
-          accepts: [{arg: 'book', type: 'string'},{arg: 'category', type: 'string'},{arg: 'offset', type: 'string'}],
+          accepts: [{arg: 'book', type: 'string'},
+            {arg: 'category', type: 'string'},
+            {arg: 'offset', type: 'string'}],
           returns: {arg: 'repertory', type: 'array'}
         }
     );

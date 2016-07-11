@@ -50,6 +50,9 @@ import {OrganonService} from '../../shared/services/organon.service';
   
   { path: '/reversed-repertory', name: 'ReversedRepertory', component: RepertoryComponent },
   { path: '/medica-medica', name: 'Medica-Materia', component: MedicaComponent },
+  { path: '/medica-medica/:rem', name: 'MedicaMateriaByRem', component: MedicaComponent },
+  { path: '/medica-medica/English/:searchTerm/page/:offset', name: 'MedicaMateriaSearch', component: MedicaComponent },
+  
   { path: '/abbreviation', name: 'Abbreviation', component: AbbreviationComponent },
   { path: '/organon', name: 'Organon', component: OrganonComponent },
   { path: '/community', name: 'Community', component: ChatComponent },

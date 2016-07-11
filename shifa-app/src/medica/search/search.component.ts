@@ -3,8 +3,6 @@ import {CORE_DIRECTIVES, FORM_DIRECTIVES} from 'angular2/common';
 
 import {MedicaService} from '../../shared/services/medica.service';
 import {MMRemediesComponent} from './../remedies/remedies.component';
-import {SearchMedicaComponent} from './../search/search.component';
-import {HeaderMedicaComponent} from './../header/header.component';
 import {HTTP_PROVIDERS} from 'angular2/http';
 
 
@@ -14,22 +12,26 @@ import {OnInit} from 'angular2/core';
 import 'rxjs/add/observable/forkJoin';
 
 @Component({
-  selector: 'sd-medica',
+  selector: 'medica-search',
   moduleId: module.id,
-  templateUrl: './medica.component.html',
-  styleUrls: ['./medica.component.css'],
-  directives: [FORM_DIRECTIVES, CORE_DIRECTIVES,ROUTER_DIRECTIVES,HeaderMedicaComponent,MMRemediesComponent,SearchMedicaComponent],
+  templateUrl: './search.component.html',
+  styleUrls: ['./search.component.css'],
+  directives: [FORM_DIRECTIVES, CORE_DIRECTIVES,ROUTER_DIRECTIVES,MMRemediesComponent],
   providers:[MedicaService,HTTP_PROVIDERS]
 })
-export class MedicaComponent implements OnInit{
+export class SearchMedicaComponent implements OnInit{
   medicaData: Array<Object>;
   isLoading = false;
-  detailsMode = true;
   searchTerm: string;
+  authors = [
+    {name:'Kent',src:'assets/images/authors/ic_mm_kent_logo.png', book:'kent'},
+    {name:'Boenninghausen\'s',src:'assets/images/authors/ic_logo_boenninghausens.png', book:'Boenninghausens'},
+    {name:'Cyrus Maxwell Boger',src:'assets/images/authors/ic_mm_allen_logo.png', book:'cyrus'}
+  ];
   constructor(public medicaService: MedicaService,private _routeParams:RouteParams,private _router:Router) {
       }
 
- getMedicaSearch(searchTerm: string) {
+  getMedicaDetails(searchTerm: string) {
       Observable.forkJoin(
           this.medicaService.searchMM(searchTerm)
       )
@@ -40,31 +42,12 @@ export class MedicaComponent implements OnInit{
           null,
           () => { this.isLoading = false; })
   }    
-
-  getMedicaDetails(rem: string) {
-      Observable.forkJoin(
-          this.medicaService.getRemediesDetails(rem)
-      )
-      .subscribe(
-          res => {
-              this.medicaData = (<any>res)[0];
-          },
-          null,
-          () => { this.isLoading = false; })
-  }    
   ngOnInit() {
-    if (this._routeParams.get('rem')) {
-        this.getMedicaDetails(this._routeParams.get('rem'));
-    }
-    else if (this._routeParams.get('searchTerm')) {
-     this.searchTerm = this._routeParams.get('searchTerm');
+      this.searchTerm = this._routeParams.get('searchTerm');
       if (this.searchTerm) {
-          this.getMedicaSearch(this.searchTerm);
+          this.getMedicaDetails(this.searchTerm);
       }  
-    }
-    else {
         
-    }
   }
   // getRemediesDetails
   
