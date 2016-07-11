@@ -50,7 +50,7 @@ import {OrganonService} from '../../shared/services/organon.service';
   { path: '/medica-medica/:language/:rem', name: 'MedicaMateriaByRem', component: MedicaComponent },
   { path: '/medica-medica/:language/:searchTerm/page/:offset', name: 'MedicaMateriaSearch', component: MedicaComponent },
    
-  { path: '/organon', name: 'Organon', component: OrganonComponent },
+  { path: '/organon/:indexNo', name: 'Organon', component: OrganonComponent },
   { path: '/community', name: 'Community', component: ChatComponent },
   { path: '/chat', name: 'Chat', component: ChatComponent },
   { path: '/account', name: 'Account', component: RepertoryComponent },

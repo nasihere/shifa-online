@@ -1,31 +1,27 @@
 <div class="row margin-20" >
-  
-  <div class="col col-lg-2 col-md-2">
-    <ul class="nav nav-pills nav-stacked">
-      <li>
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search">
+  <div  >
+  <div class="col col-lg-12 col-md-12">
+    <div class="bs-component">
+      <ul class="nav nav-tabs">
+        <li  *ngFor ="#item of organonData; #id = index;" [ngClass]="{'active':(id==0)}" ><a href="#divOrg{{id}}" data-toggle="tab">{{item.indexNo}}</a></li>
 
-        </div>
-      </li>
-      <li class="separator float-left " [class.active]="item == '1-19'" *ngFor ="#item of organonIndex"  >
-        <a>
-          <span>{{item}}</span>
-        </a>
-      </li>
-    </ul>
+      </ul>
 
-  </div>
-  <div class="col col-lg-10 col-md-10">
+      <div id="myTabContent" class="tab-content">
 
-          <h2 id="nav-tabs">[1-19] - Organon</h2>
-  <div  id="blockCard">
-        <div class="bs-component">
+        <div class="tab-pane fade "  *ngFor ="#item of organonData; #id = index;" id="divOrg{{id}}" [ngClass]="{' active in':(id==0)}">
+          <div class="col-lg-12" id="blockCard">
+            <div class="bs-component">
               <blockquote>
-                <div [innerHTML]="organonData[0].description"></div>
+                <div  [innerHTML]="item.description"></div>
               </blockquote>
             </div>
           </div>
+        </div>
+      </div>
+    </div>
 
+  </div>
+  
 </div>
 </div>

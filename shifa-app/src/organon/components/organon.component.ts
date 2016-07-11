@@ -1,8 +1,9 @@
 import {Component} from 'angular2/core';
 import {CORE_DIRECTIVES, FORM_DIRECTIVES} from 'angular2/common';
-import {ROUTER_DIRECTIVES} from 'angular2/router';
 
 import {OrganonService} from '../../shared/services/organon.service';
+import {ROUTER_DIRECTIVES,RouteParams,Router} from 'angular2/router';
+import {OnInit} from 'angular2/core';
 
 
 @Component({
@@ -10,16 +11,20 @@ import {OrganonService} from '../../shared/services/organon.service';
   moduleId: module.id,
   templateUrl: './organon.component.html',
   styleUrls: ['./organon.component.css'],
-  directives: [FORM_DIRECTIVES, CORE_DIRECTIVES,ROUTER_DIRECTIVES]
+  directives: [FORM_DIRECTIVES, CORE_DIRECTIVES,ROUTER_DIRECTIVES],
+  providers:[OrganonService]
 })
-export class OrganonComponent {
+export class OrganonComponent implements OnInit{
   organonData: Object;
   organonIndex: string[];
-  constructor(public organonService: OrganonService) {
-      this.organonIndex = ['1-19','20-39','40-59','60-79','80-99','100-119','120-139','140-159','160-179','180-199','200-219','220-239','240-259','260-279','280-294']
-      this.organonData = organonService.get();
+  indexNo:string;
+  constructor(public organonService: OrganonService,private _routeParams:RouteParams,private _router:Router) {
+       this.organonData = organonService.get();
   }
-
+  ngOnInit() {
+        this.indexNo = this._routeParams.get('indexNo') || '1-19';
+       
+    }
   
   
 }
