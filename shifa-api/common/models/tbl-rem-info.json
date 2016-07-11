@@ -27,6 +27,22 @@
       },
       "_selectable": false
     },
+    "RemediesName": {
+      "type": "String",
+      "required": true,
+      "length": 20,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "RemediesName",
+        "dataType": "varchar",
+        "dataLength": 20,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "N"
+      },
+      "_selectable": false
+    },
     "data": {
       "type": "String",
       "required": true,
@@ -107,7 +123,7 @@
       },
       "_selectable": false
     },
-    "rem032014": {
+    "rem_03_2014": {
       "type": "String",
       "required": true,
       "length": 50,
@@ -123,7 +139,7 @@
       },
       "_selectable": false
     },
-    "dataItalian": {
+    "data_Italian": {
       "type": "String",
       "required": true,
       "length": 4294967295,
@@ -139,7 +155,7 @@
       },
       "_selectable": false
     },
-    "dataDutch": {
+    "data_dutch": {
       "type": "String",
       "required": true,
       "length": 4294967295,
@@ -155,7 +171,7 @@
       },
       "_selectable": false
     },
-    "dataPortuguese": {
+    "data_portuguese": {
       "type": "String",
       "required": true,
       "length": 4294967295,
@@ -171,7 +187,7 @@
       },
       "_selectable": false
     },
-    "dataGerman": {
+    "data_german": {
       "type": "String",
       "required": true,
       "length": 4294967295,
@@ -187,7 +203,7 @@
       },
       "_selectable": false
     },
-    "dataFrench": {
+    "data_french": {
       "type": "String",
       "required": true,
       "length": 4294967295,
@@ -203,7 +219,7 @@
       },
       "_selectable": false
     },
-    "dataSpanish": {
+    "data_spanish": {
       "type": "String",
       "required": true,
       "length": 4294967295,
@@ -219,7 +235,7 @@
       },
       "_selectable": false
     },
-    "kentItalian": {
+    "kent_Italian": {
       "type": "String",
       "required": true,
       "length": 4294967295,
@@ -235,7 +251,7 @@
       },
       "_selectable": false
     },
-    "kentDutch": {
+    "kent_dutch": {
       "type": "String",
       "required": true,
       "length": 4294967295,
@@ -251,7 +267,7 @@
       },
       "_selectable": false
     },
-    "kentPortuguese": {
+    "kent_portuguese": {
       "type": "String",
       "required": true,
       "length": 4294967295,
@@ -267,7 +283,7 @@
       },
       "_selectable": false
     },
-    "kentGerman": {
+    "kent_german": {
       "type": "String",
       "required": true,
       "length": 4294967295,
@@ -283,7 +299,7 @@
       },
       "_selectable": false
     },
-    "kentFrench": {
+    "kent_french": {
       "type": "String",
       "required": true,
       "length": 4294967295,
@@ -299,7 +315,7 @@
       },
       "_selectable": false
     },
-    "kentSpanish": {
+    "kent_spanish": {
       "type": "String",
       "required": true,
       "length": 4294967295,
@@ -315,7 +331,7 @@
       },
       "_selectable": false
     },
-    "allenItalian": {
+    "allen_Italian": {
       "type": "String",
       "required": true,
       "length": 4294967295,
@@ -331,7 +347,7 @@
       },
       "_selectable": false
     },
-    "allenDutch": {
+    "allen_dutch": {
       "type": "String",
       "required": true,
       "length": 4294967295,
@@ -347,7 +363,7 @@
       },
       "_selectable": false
     },
-    "allenPortuguese": {
+    "allen_portuguese": {
       "type": "String",
       "required": true,
       "length": 4294967295,
@@ -363,7 +379,7 @@
       },
       "_selectable": false
     },
-    "allenGerman": {
+    "allen_german": {
       "type": "String",
       "required": true,
       "length": 4294967295,
@@ -379,7 +395,7 @@
       },
       "_selectable": false
     },
-    "allenFrench": {
+    "allen_french": {
       "type": "String",
       "required": true,
       "length": 4294967295,
@@ -395,7 +411,7 @@
       },
       "_selectable": false
     },
-    "allenSpanish": {
+    "allen_spanish": {
       "type": "String",
       "required": true,
       "length": 4294967295,

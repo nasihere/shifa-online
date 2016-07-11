@@ -23,6 +23,7 @@ export class SearchMedicaComponent implements OnInit{
   medicaData: Array<Object>;
   isLoading = false;
   searchTerm: string;
+  paramLanguage: string;
   authors = [
     {name:'Kent',src:'assets/images/authors/ic_mm_kent_logo.png', book:'kent'},
     {name:'Boenninghausen\'s',src:'assets/images/authors/ic_logo_boenninghausens.png', book:'Boenninghausens'},
@@ -32,8 +33,9 @@ export class SearchMedicaComponent implements OnInit{
       }
 
   getMedicaDetails(searchTerm: string) {
+      alert(this.paramLanguage)
       Observable.forkJoin(
-          this.medicaService.searchMM(searchTerm)
+          this.medicaService.searchMM(searchTerm, this.paramLanguage)
       )
       .subscribe(
           res => {
@@ -43,6 +45,7 @@ export class SearchMedicaComponent implements OnInit{
           () => { this.isLoading = false; })
   }    
   ngOnInit() {
+      this.paramLanguage = this._routeParams.get('language'); 
       this.searchTerm = this._routeParams.get('searchTerm');
       if (this.searchTerm) {
           this.getMedicaDetails(this.searchTerm);

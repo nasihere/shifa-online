@@ -21,12 +21,14 @@ import {ROUTER_DIRECTIVES,RouteParams,Router} from 'angular2/router';
 export class MMRemediesComponent implements OnInit{
   remediesList:Array<Object>;
   isLoading = false;
+  paramLanguage: string;
   searchParam: string;
   constructor(public medicaService: MedicaService,private _routeParams:RouteParams,private _router:Router) {
 
   }
   ngOnInit() {
     this.searchParam = this._routeParams.get('rem');
+    this.paramLanguage = this._routeParams.get('language') || 'English';
    Observable.forkJoin(
           this.medicaService.getRemediesList()
       )

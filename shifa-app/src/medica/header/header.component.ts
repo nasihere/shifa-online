@@ -19,24 +19,30 @@ import {MedicaService} from '../../shared/services/medica.service';
 })
 export class HeaderMedicaComponent implements OnInit{
   medicaData: Object;
+  paramLanguage: string;
   isLoading = false;
   search: string;
+  paramSearchRem: string;
+  paramSearchTerm: string;
+  listLanguage = ['English','German','Dutch','French','Portugal','Spanish','Italian'];
   constructor(public medicaService: MedicaService,private _routeParams:RouteParams,private _router:Router) {
       //this.medicaData = medicaService.get();
   }
 
-  enterKeySearch(searchTerm: string){
-        this.getSearchByText(searchTerm,0);
+    getSearchByText(str:string){
+        this._router.navigate( ['MedicaMateriaSearch', {language:this.paramLanguage, searchTerm: str, offset: 0 }] );
     }
 
-    getSearchByText(str:string, offset:number){
-        
-        this._router.navigate( ['MedicaMateriaSearch', { searchTerm: str, offset: offset }] );
+  enterKeySearch(searchTerm: string){
+        this.getSearchByText(searchTerm);
     }
+
     
   ngOnInit() {
-      
-   Observable.forkJoin(
+      this.paramLanguage = this._routeParams.get('language') || 'English';
+      this.paramSearchRem = this._routeParams.get('rem') || null;
+      this.paramSearchTerm = this._routeParams.get('searchTerm') || null;
+     Observable.forkJoin(
           this.medicaService.getRemediesList()
       )
       .subscribe(

@@ -20,8 +20,8 @@ export class MedicaService {
       return this._http.get(this._base+'?filter[where][rem]='+rem).map(res => res.json());
     }
     
-    searchMM(searchTerm: string): Observable<Object> {
-      return this._http.get(this._base+'/searchDetails?searchTerm='+searchTerm + '&offset=0').map(res => res.json());
+    searchMM(searchTerm: string, language: string): Observable<Object> {
+      return this._http.get(this._base+'/searchDetails?language='+language+'&searchTerm='+searchTerm + '&offset=0').map(res => res.json());
     }
     
 }

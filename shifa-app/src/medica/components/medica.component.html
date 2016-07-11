@@ -1,60 +1,83 @@
 <header-medica></header-medica>
 <div class="row  margin-left-20">
-	<div class="col col-lg-2 col-md-2">
-		<materia-remedies></materia-remedies>
-	</div>
+  <div class="col col-lg-2 col-md-2 pull-left">
+    <materia-remedies></materia-remedies>
+  </div>
   
-	<div  class="col col-lg-10 col-md-10 " *ngFor="#item of medicaData; #id=index">
-    
-      <h2 id="nav-tabs"> {{item.rem}} - Materia Medica</h2>
-            <div class="bs-component">
-              <ul class="nav nav-tabs">
-                <li *ngIf="item.data" class="active"><a href="#divBor{{id}}" data-toggle="tab">Boericke</a></li>
-                <li *ngIf="item.kent"><a href="#divKent{{id}}" data-toggle="tab">Kent</a></li>
-                <li *ngIf="item.allen"><a href="#divAllan{{id}}" data-toggle="tab">Allen</a></li>
-              
-              </ul>
-              <div id="myTabContent" class="tab-content">
-                <div class="tab-pane fade active in" id="divBor{{id}}">
-                 
-                 <div class="col-lg-12" id="blockCard">
+  <div class="col col-lg-10 col-md-10 pull-right">
+   <div *ngFor="#item of medicaData; #id=index">
+
+    <h2 id="nav-tabs"> {{item.rem}} - {{item.RemediesName}}</h2>
+    <div class="bs-component">
+      <ul class="nav nav-tabs">
+        <li *ngIf="item.data" class="active"><a href="#divBor{{id}}" data-toggle="tab">Boericke</a></li>
+        <li *ngIf="item.kent"><a href="#divKent{{id}}" data-toggle="tab">Kent</a></li>
+        <li *ngIf="item.allen"><a href="#divAllan{{id}}" data-toggle="tab">Allen</a></li>
+
+      </ul>
+      <div id="myTabContent" class="tab-content">
+
+        <div class="tab-pane fade active in" id="divBor{{id}}">
+          <div class="col-lg-12" id="blockCard">
             <div class="bs-component">
               <blockquote>
-                <div [innerHTML]="item.data.split(searchTerm).join('<mark>' + searchTerm + '</mark>' )"></div>
+                <div *ngIf="paramLanguage === 'English'" [innerHTML]="getHighLight(item.data)"></div>
+                <div *ngIf="paramLanguage === 'Dutch'" [innerHTML]="getHighLight(item.data_dutch)"></div>
+                <div *ngIf="paramLanguage === 'Italian'" [innerHTML]="getHighLight(item.data_Italian)"></div>
+                <div *ngIf="paramLanguage === 'French'" [innerHTML]="getHighLight(item.data_french)"></div>
+                <div *ngIf="paramLanguage === 'German'" [innerHTML]="getHighLight(item.data_german)"></div>
+                <div *ngIf="paramLanguage === 'Spanish'" [innerHTML]="getHighLight(item.data_spanish)"></div>
+                <div *ngIf="paramLanguage === 'Portugal'" [innerHTML]="getHighLight(item.data_portuguese)"></div>
               </blockquote>
             </div>
           </div>
+        </div>
 
-                </div>
-                <div class="tab-pane fade" id="divKent{{id}}">
-                  
-                  <div class="col-lg-12" id="blockCard">
+
+
+        <div class="tab-pane fade" id="divKent{{id}}">
+          <div class="col-lg-12" id="blockCard">
             <div class="bs-component">
               <blockquote>
-                <div [innerHTML]="item.kent.split(searchTerm).join('<mark>' + searchTerm + '</mark>')"></div>
-              </blockquote>
+                <div *ngIf="paramLanguage === 'English'" [innerHTML]="getHighLight(item.kent)"></div>
+                <div *ngIf="paramLanguage === 'Dutch'" [innerHTML]="getHighLight(item.kent_dutch)"></div>
+                <div *ngIf="paramLanguage === 'Italian'" [innerHTML]="getHighLight(item.kent_Italian)"></div>
+                <div *ngIf="paramLanguage === 'French'" [innerHTML]="getHighLight(item.kent_french)"></div>
+                <div *ngIf="paramLanguage === 'German'" [innerHTML]="getHighLight(item.kent_german)"></div>
+                <div *ngIf="paramLanguage === 'Spanish'" [innerHTML]="getHighLight(item.kent_spanish)"></div>
+                <div *ngIf="paramLanguage === 'Portugal'" [innerHTML]="getHighLight(item.kent_portuguese)"></div>
+               </blockquote>
             </div>
           </div>
+        </div>
 
 
-                </div>
-                <div class="tab-pane fade" id="divAllan{{id}}">
-                 
-
-
-                  <div class="col-lg-12" id="blockCard">
+        <div class="tab-pane fade" id="divAllan{{id}}">
+          <div class="col-lg-12" id="blockCard">
             <div class="bs-component">
               <blockquote>
-                <div [innerHTML]="item.allen.split(searchTerm).join('<mark>' + searchTerm + '</mark>' )"></div>
-              </blockquote>
+                <div *ngIf="paramLanguage === 'English'" [innerHTML]="getHighLight(item.allen)"></div>
+                <div *ngIf="paramLanguage === 'Dutch'" [innerHTML]="getHighLight(item.allen_dutch)"></div>
+                <div *ngIf="paramLanguage === 'Italian'" [innerHTML]="getHighLight(item.allen_Italian)"></div>
+                <div *ngIf="paramLanguage === 'French'" [innerHTML]="getHighLight(item.allen_french)"></div>
+                <div *ngIf="paramLanguage === 'German'" [innerHTML]="getHighLight(item.allen_german)"></div>
+                <div *ngIf="paramLanguage === 'Spanish'" [innerHTML]="getHighLight(item.allen_spanish)"></div>
+                <div *ngIf="paramLanguage === 'Portugal'" [innerHTML]="getHighLight(item.allen_portuguese)"></div>
+           </blockquote>
             </div>
           </div>
+        </div>
 
 
-                </div>
-               
-              </div>
-            </div>
-          </div>
 
-          
+      </div>
+    </div>
+  </div>
+  
+   <ul class="pager" *ngIf="searchTerm && (countItem == 20)">
+    <li *ngIf="offset !== 0" class="previous "><a [routerLink]="['MedicaMateriaSearch',{language:paramLanguage, searchTerm:searchTerm, offset: (offset-1)}]">&larr; Previous</a></li>
+    <li  class="next"><a  [routerLink]="['MedicaMateriaSearch',{language:paramLanguage, searchTerm:searchTerm, offset: (offset+1)}]">Next &rarr;</a></li>
+  </ul>
+  
+ </div>
+ </div>

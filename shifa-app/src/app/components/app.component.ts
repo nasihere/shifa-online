@@ -9,7 +9,6 @@ import {ChapterComponent} from '../../repertory/chapters/chapter.component';
 
 import {MedicaComponent} from '../../medica/components/medica.component';
 import {MMRemediesComponent} from '../../medica/remedies/remedies.component';
-import {AbbreviationComponent} from '../../abbreviation/components/abbreviation.component';
 
 
 import {HeaderRepertoryComponent} from '../../repertory/header/header.component';
@@ -23,13 +22,12 @@ import {ContactComponent} from '../../chat/contacts/contact.component';
 import {NameListService} from '../../shared/services/name-list.service';
 import {RepertoryService} from '../../shared/services/repertory.service';
 import {MedicaService} from '../../shared/services/medica.service';
-import {AbbreviationService} from '../../shared/services/abbreviation.service';
 import {OrganonService} from '../../shared/services/organon.service';
 
 
 @Component({
   selector: 'sd-app',
-  viewProviders: [NameListService, RepertoryService,MedicaService,AbbreviationService,OrganonService],
+  viewProviders: [NameListService, RepertoryService,MedicaService,OrganonService],
   moduleId: module.id,
   templateUrl: './app.component.html',
   directives: [ROUTER_DIRECTIVES, NavbarComponent],
@@ -49,11 +47,9 @@ import {OrganonService} from '../../shared/services/organon.service';
   
   
   { path: '/reversed-repertory', name: 'ReversedRepertory', component: RepertoryComponent },
-  { path: '/medica-medica', name: 'Medica-Materia', component: MedicaComponent },
-  { path: '/medica-medica/:rem', name: 'MedicaMateriaByRem', component: MedicaComponent },
-  { path: '/medica-medica/English/:searchTerm/page/:offset', name: 'MedicaMateriaSearch', component: MedicaComponent },
-  
-  { path: '/abbreviation', name: 'Abbreviation', component: AbbreviationComponent },
+  { path: '/medica-medica/:language/:rem', name: 'MedicaMateriaByRem', component: MedicaComponent },
+  { path: '/medica-medica/:language/:searchTerm/page/:offset', name: 'MedicaMateriaSearch', component: MedicaComponent },
+   
   { path: '/organon', name: 'Organon', component: OrganonComponent },
   { path: '/community', name: 'Community', component: ChatComponent },
   { path: '/chat', name: 'Chat', component: ChatComponent },

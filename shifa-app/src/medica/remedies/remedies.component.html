@@ -6,7 +6,7 @@
         </div>
   </li>
   <li class="separator float-left " [class.active]="item.rem == searchParam" *ngFor ="#item of remediesList"  >
-      <a [routerLink]="['MedicaMateriaByRem', {rem: item.rem}]">
+      <a [routerLink]="['MedicaMateriaByRem', {rem: item.rem,language: paramLanguage}]">
         <span>{{item.rem | uppercase}}</span>
       </a>
     </li>
